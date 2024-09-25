@@ -18,17 +18,10 @@ namespace CheckerApp
 
         public async Task Run()
         {
-
-            string abc = "abc";
-
-            
-
-
-
-            var eneryService = new EnergyService(_httpClient);
+            //var eneryService = new EnergyService(_httpClient);
             var weatherService = new WeatherService(_httpClient);
 
-            var energyData = await HandleEnergyAsyncCalls(eneryService);
+            //var energyData = await HandleEnergyAsyncCalls(eneryService);
             var weatherData = await HandleWeatherAsyncCalls(weatherService);
             var currentData = weatherData.GetCurrentHourlyData();
 
@@ -48,18 +41,18 @@ namespace CheckerApp
             }
 
 
-            if (energyData != null)
-            {
-                var currentEnergyPrice = energyData.GetCurrentEnergyPrice();
-                if (currentEnergyPrice != null)
-                {
-                    Console.WriteLine($"Current Energy Price: {currentEnergyPrice.SEK_per_kWh} SEK/kWh from {currentEnergyPrice.TimeStart} to {currentEnergyPrice.TimeEnd}");
-                }
-                else
-                {
-                    Console.WriteLine("No current energy price available.");
-                }
-            }
+            //if (energyData != null)
+            //{
+            //    var currentEnergyPrice = energyData.GetCurrentEnergyPrice();
+            //    if (currentEnergyPrice != null)
+            //    {
+            //        Console.WriteLine($"Current Energy Price: {currentEnergyPrice.SEK_per_kWh} SEK/kWh from {currentEnergyPrice.TimeStart} to {currentEnergyPrice.TimeEnd}");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("No current energy price available.");
+            //    }
+            //}
 
             Console.WriteLine("Press any key to quit!");
             Console.ReadLine();
